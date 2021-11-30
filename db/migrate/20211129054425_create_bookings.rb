@@ -1,8 +1,8 @@
 class CreateBookings < ActiveRecord::Migration[6.1]
   def change
     create_table :bookings do |t|
-      t.date :start
-      t.date :finish
+      t.datetime :start
+      t.datetime :finish
       t.references :user, null: false, foreign_key: true
       t.references :space, null: false, foreign_key: true
 
