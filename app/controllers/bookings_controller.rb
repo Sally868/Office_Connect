@@ -10,15 +10,15 @@ class BookingsController < ApplicationController
 
   end
 
-  # new_venue_space_booking GET/venues/:venue_id/spaces/:space_id/bookings/new(.:format)/bookings#new
+  # new_venue_space_booking GET /spaces/:space_id/bookings/new(.:format)/bookings#new
   def new
     @booking = Booking.new
   end
 
-  #  venue_space_bookings POST/venues/:venue_id/spaces/:space_id/bookings(.:format)/bookings#create
+  #  venue_space_bookings POST  /spaces/:space_id/bookings(.:format)/bookings#create
   def create
     @booking = Booking.new(booking_params)
-    @booking.venue = 
+    @booking.space = @space
 
     @booking.user = current_user
     if @booking.save
@@ -35,10 +35,6 @@ class BookingsController < ApplicationController
 
 
   private
-
-  def set_venue
-    @venue = Venue.find(params[:venue_id])
-  end
 
   def set_space
     @space = Space.find(params[:space_id])
