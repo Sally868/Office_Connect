@@ -10,13 +10,18 @@ export default class extends Controller {
     }
   }
 
+  connect () {
+    console.log("hellooooooo")
+
+  }
+
   initialize() {
     this.cells = this.element.querySelectorAll('td div')
     this.selectedStarttime = ""
     this.selectedFinishtime = ""
   }
 
-  
+
   selectDateTime (event) {
     console.log("startDragSelect")
     const clickedElement = event.currentTarget
@@ -27,7 +32,7 @@ export default class extends Controller {
         this.clearAllSelected()
         // this.startTarget.value = this.selectedStarttime
         this.startTarget.value = moment(selectedDatetime).format("DD-MM-YYYY hh:mm");
-        debugger
+      
         clickedElement.classList.add('bg-green-500')
         // find startInputTarget and set value to data-datetime of the element that was just clicked
     } else {
