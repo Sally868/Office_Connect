@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.space = @space
     @booking.user = current_user
-    byebug
+   
     if params[:week_start] && params[:week_start] > DateTime.now
       
       @monday = DateTime.parse(params[:week_start])

@@ -16,12 +16,7 @@ export default class extends Controller {
     this.selectedFinishtime = ""
   }
 
-  connect () {
-    console.log("booking sth")
-    console.log(this.startTarget)
-    console.log(this.finishTarget)
-  }
-
+  
   selectDateTime (event) {
     console.log("startDragSelect")
     const clickedElement = event.currentTarget
@@ -31,7 +26,8 @@ export default class extends Controller {
         this.selectedStarttime = selectedDatetime
         this.clearAllSelected()
         // this.startTarget.value = this.selectedStarttime
-        this.startTarget.value = moment(selectedDatetime).format("DD-MM-YYYY hh:mm:ss");
+        this.startTarget.value = moment(selectedDatetime).format("DD-MM-YYYY hh:mm");
+        debugger
         clickedElement.classList.add('bg-green-500')
         // find startInputTarget and set value to data-datetime of the element that was just clicked
     } else {
@@ -39,7 +35,7 @@ export default class extends Controller {
         const dateLarger = moment(selectedDatetime).isSameOrAfter(moment(this.selectedStarttime));
         if (dateLarger) {
             this.selectedFinishtime = selectedDatetime
-            this.finishTarget.value = moment(selectedDatetime).format("DD-MM-YYYY hh:mm:ss");
+            this.finishTarget.value = moment(selectedDatetime).format("DD-MM-YYYY hh:mm");
             this.selectInBetween()
             clickedElement.classList.add('bg-green-500')
         } else {
