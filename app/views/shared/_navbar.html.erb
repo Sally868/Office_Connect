@@ -78,11 +78,12 @@
         </div>
       </nav>
       <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-        <a href="#" class="whitespace-nowrap text-base font-medium text-gray-100 hover:text-gray-400">
-          Sign in
+        <a href="#">
+          <%# Log in %>
+          <%= link_to "Log in", login_path, class: "nav-link whitespace-nowrap text-base font-medium text-gray-100 hover:text-gray-400" %>
         </a>
-        <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 shadow rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700">
-          Sign up
+        <a href="#">
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 shadow rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700" %>
         </a>
       </div>
     </div>
