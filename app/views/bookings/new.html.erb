@@ -1,0 +1,57 @@
+
+<div class="container">
+    <h1>Choose your date and time</h1>
+    <% start_time = 9 %>
+    <div data-controller="booking">
+    <table class="booking-grid">
+        <%= simple_form_for ([@space, @booking]) do |f| %>
+            <%= f.input :start, as: :string, input_html: {data: {booking_target:'start'}} %>
+            <%= f.input :finish, as: :string, input_html: {data: {booking_target:'finish'}} %>
+            <%= f.submit class: 'w-full bg-yellow-300 border border-transparent rounded-md py-2 px-8 flex items-center justify-center text-base font-medium text-yellow-700 hover:text-yellow-800 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-yellow-500' %>
+        <% end %>
+
+        <div class="container">
+            <div class="space">
+
+                Week:
+                <%= link_to 'Prev', new_space_booking_path(@space, week_start: @monday - 7.day) %>
+                |
+                <%= link_to 'Next', new_space_booking_path(@space, week_start: @monday + 7.day) %>
+            </div>
+
+            <tr>
+                <td></td>
+                <td>Mon</td>
+                <td>Tue</td>
+                <td>Wed</td>
+                <td>Thu</td>
+                <td>Fri</td>
+            
+            </tr>
+
+            <tr>
+                <td></td>
+
+                <% 5.times do |index_day| %>
+                    <td><%= (@monday + index_day).strftime('%d/%m') %></td>
+                <% end %>
+            </tr>
+
+            <% 8.times do |index_hr| %>
+                <tr>
+                    <td><%= (start_time + index_hr +1) %></td>
+                    <% 5.times do |index_day| %>
+                        <td><div id="1d" data-action="click->booking#selectDateTime" data-datetime="<%= (@monday + index_day.days).change({ hour: start_time + index_hr +1 }) %>">
+                            
+                        </div></td>
+                        
+                    <% end %>
+                </tr>
+            <% end %>
+        </div>
+    </table>
+    </div>
+ </div>
+
+
+

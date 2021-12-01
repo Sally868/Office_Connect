@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = User.create(email: "abc@gmail.com", password: "123456")
+
+venue = Venue.create(name: "inpsire9", address: "melbourne", user: user)
+
+space= Space.create(name: "seat1", capacity: 20, venue: venue)
+
+
+
