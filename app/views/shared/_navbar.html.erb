@@ -78,6 +78,7 @@
         </div>
       </nav>
       <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+
         <% if current_user %>
            <%= link_to destroy_user_session_path, method: :delete, class:'whitespace-nowrap text-base font-medium text-gray-100 hover:text-gray-400' do %>
             Logout
