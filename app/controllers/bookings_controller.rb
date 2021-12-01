@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-
   end
 
   # new_venue_space_booking GET /spaces/:space_id/bookings/new(.:format)/bookings#new
@@ -47,7 +46,6 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to bookings_path
   end
-
 
   private
 

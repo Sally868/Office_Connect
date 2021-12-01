@@ -5,12 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+user = User.create(email: 'vivien@gmail.com', password: '123456')
+user2 = User.create(email: "george@gmail.com", password: "123456")
 
-user = User.create(email: "abc@gmail.com", password: "123456")
+venue = Venue.create(name: "Inspire9", address: "42 stewart street, richmond", user: user)
 
-venue = Venue.create(name: "inpsire9", address: "melbourne", user: user)
+space = Space.create(name:"Pool room", venue: venue)
 
-space= Space.create(name: "seat1", capacity: 20, venue: venue)
-
-
-
+Booking.create(start: DateTime.now, finish: DateTime.now + 1.hours, space: space, user: user2)
