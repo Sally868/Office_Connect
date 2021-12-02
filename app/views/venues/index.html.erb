@@ -1,0 +1,9 @@
+<div style="height: calc(100vh - 70px)">
+
+    <div class="p-10">
+      <% @venues.each do |venue| %>
+        <%= render 'venue', venue: venue %>
+      <% end %>
+    </div>
+
+</div>

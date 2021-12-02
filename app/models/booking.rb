@@ -4,4 +4,5 @@ class Booking < ApplicationRecord
 
   validates :start, presence: true
   validates :finish, presence: true
+  
 end
