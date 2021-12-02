@@ -1,4 +1,13 @@
 
+<h1>bookings</h1>
+<% @bookings.each do |booking| %>
+    <%= booking.start.strftime("%d/%m/%Y %I-%M%p") %>
+    <%= booking.finish.strftime("%d/%m/%Y %I-%M%p") %>
+    <%= booking.space.name %>
+<% end %>
+<section>
+  <%# impliment/display the capacity in squares/grid %>
+
   <h1> All Bookings </h1>
 
 <div class="flex flex-col">
@@ -62,4 +71,24 @@
   </div>
 </div>
 
+
+  <p class="text">
+    You have selected <span id="count">0</span> seats for a price of $<span
+      id="total"
+      >0</span
+    >
+  </p>@q<<>>
+
+  <script src="seatselector.js"></script>
+
+</section>
+
+
+<%# https://www.interact-lighting.com/global/what-is-possible/interact-office/workspace-app %>
+<%# url('https://www.interact-lighting.com/b-dam/b2b-li/en_AA/interact/what-is-possible/interact-office/software/workspace-app/workspace-app-masthead-t.jpg') %>
+
+
+<%# eventListener on click %>
+
 <div class="text-center m-4"><%= link_to 'Back', venues_path %></div>
+
