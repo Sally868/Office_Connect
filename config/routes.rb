@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :spaces, except: [:new, :create, :index] do
     resources :bookings, only: [:new, :create ]
   end
+
   resources :venues do
     resources :spaces, only: [:new, :create, :index]
   end
