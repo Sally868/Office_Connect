@@ -3,7 +3,7 @@ class Venue < ApplicationRecord
   has_many :spaces, dependent: :destroy
   has_many :bookings, through: :spaces
 
-  geocoded_by :address do |obj,results|
+  geocoded_by :address do |obj, results|
     if geo = results.first
       obj.latitude = geo.latitude
       obj.longitude = geo.longitude
@@ -13,6 +13,7 @@ class Venue < ApplicationRecord
       obj.country = geo.country
     end
   end
+
   after_validation :geocode
   has_many_attached :photos
 end
