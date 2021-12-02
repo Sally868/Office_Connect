@@ -48,6 +48,7 @@
 <%# SPACES %>
 <section class="bg-white text-gray-600 body-font">
   <div class="container px-5 pb-24 mx-auto flex">
+  <%# SPACE CARDS %>
     <div class="w-2/3">
       <div class="-m-4">
         <div class="p-4">
@@ -57,12 +58,12 @@
               <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Space Name</h1>
               <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><%= @venue.name %></h2>
               <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-              <div class="flex items-center flex-wrap ">
-                <a class="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">Book Now</a>
-                <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+              <div class="flex-row justify-between">
+                <button class="flex-col text-white py-2 px-12 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500">Book now</button>
+                <div class="flex-row text-gray-400 mr-3 inline-flex items-right lg:ml-auto md:ml-0 ml-auto leading-none text-sm pl-3 py-1 border-l-2 border-gray-200">
+                  <i class="fas fa-laptop pr-2"></i>
                   <p>12 seats </p>
-                  <i class="fas fa-laptop"></i>
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -74,12 +75,12 @@
               <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Space Name</h1>
               <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><%= @venue.name %></h2>
               <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-              <div class="flex items-center flex-wrap ">
-                <a class="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">Book Now</a>
-                <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+              <div class="flex-row-reverse justify-between">
+                  <button class="flex-col text-white py-2 px-12 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500">Book now</button>
+                <div class="flex-row text-gray-400 mr-3 inline-flex items-right lg:ml-auto md:ml-0 ml-auto leading-none text-sm pl-3 py-1 border-l-2 border-gray-200">
+                  <i class="fas fa-laptop pr-2"></i>
                   <p>12 seats </p>
-                  <i class="fas fa-laptop"></i>
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -91,33 +92,45 @@
               <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Space Name</h1>
               <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><%= @venue.name %></h2>
               <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-              <div class="flex items-center flex-wrap ">
-                <a class="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">Book Now</a>
-                <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+              <div class="flex-row-reverse justify-between">
+                  <button class="flex-col text-white py-2 px-12 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500">Book now</button>
+                <div class="flex-row text-gray-400 mr-3 inline-flex items-right lg:ml-auto md:ml-0 ml-auto leading-none text-sm pl-3 py-1 border-l-2 border-gray-200">
+                  <i class="fas fa-laptop pr-2"></i>
                   <p>12 seats </p>
-                  <i class="fas fa-laptop"></i>
-                </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-
       </div>
-      <div class="flex flex-col -m-4">
-        <div class="p-4 md:w-1/3">
-          <div class="h-full overflow-hidden">
-          <button class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500"> Book now
+
+    </div>
+
+    <%# BOOK BUTTONS %>
+    <%# <div class="w-1/3 h-96 bg-white shadow rounded">
+      <div class="flex flex-col w-64 p-8 -m-4">
+        <div class="py-2">
+          <button class="text-white py-2 px-12 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500">Book now
           </button>
-          </div>
+        </div>
+
+        <div class="py-2">
+          <button class="text-white py-2 px-12 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500">Book now
+          </button>
+        </div>
+
+        <div class="py-2">
+          <button class="text-white py-2 px-12 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500">Book now
+          </button>
         </div>
       </div>
-    </div>
-    <div class="w-1/3 p-4 h-full bg-white shadow rounded">
-      <button class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500"> Book now
-      </button>
-    </div>
+    </div> %>
   </div>
+</section>
+
+<%# MAP %>
+<section>
+
 </section>
 
 <%#
