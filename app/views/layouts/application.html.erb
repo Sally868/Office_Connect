@@ -13,11 +13,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body class="bg-gray-800">
     <%= render 'shared/navbar' %>
 
-    <%= yield %>
-
+    <%# <div class="rounded-b-3xl pb-10 bg-gray-900 border-b-8 border-gray-700 shadow"> %>
+    <div class="rounded-b-3xl pb-10 bg-gray-900 shadow-inner">
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
   </body>
 </html>

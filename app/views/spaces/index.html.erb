@@ -1,0 +1,10 @@
+<div style="height: calc(100vh - 70px)">
+
+    <div class="p-10">
+      <h1><%= @venue.name %></h1>
+      <% @spaces.each do |space| %>
+        <%= render 'space', space: space %>
+      <% end %>
+    </div>
+
+</div>
