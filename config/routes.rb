@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :venues do
     resources :spaces, only: [:new, :create, :index]
   end
+  
   resources :bookings, only: [:index, :destroy]
   get 'dashboard', to: 'dashboards#show', as: :dashboard
 end
