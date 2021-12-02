@@ -10,10 +10,6 @@ export default class extends Controller {
     }
   }
 
-  connect () {
-    console.log("hellooooooo")
-
-  }
 
   initialize() {
     this.cells = this.element.querySelectorAll('td div')

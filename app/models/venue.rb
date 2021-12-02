@@ -2,7 +2,8 @@ class Venue < ApplicationRecord
   belongs_to :user
   has_many :spaces, dependent: :destroy
   has_many :bookings, through: :spaces
-
+  has_many_attached :photos
+  
   geocoded_by :address do |obj,results|
     if geo = results.first
       obj.latitude = geo.latitude

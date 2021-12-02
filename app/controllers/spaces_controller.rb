@@ -8,15 +8,17 @@ class SpacesController < ApplicationController
   end
 
   def new
-    @space= Space.new
+    @venue = Venue.find(params[:venue_id])
+    @space = Space.new
     # authorize if owner -> yes. else no
   end
 
   def create
     @space= Space.new(space_params)
-    @space.user = current_user
+    @venue = Venue.find(params[:venue_id])
+    @space.venue = @venue
     if @space.save
-      redirect_to @space
+      redirect_to venue_path(@venue)
     else
       render :new
     end
@@ -48,8 +50,8 @@ class SpacesController < ApplicationController
   end
 
   # Only allow a list of trusted parameters through.
-  def venue_params
-    params.require(:venue).permit(:name, :address)
+  def space_params
+    params.require(:space).permit(:name, :capacity, :photo)
   end
   # Use callbacks to share
 end
