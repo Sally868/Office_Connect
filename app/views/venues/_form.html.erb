@@ -4,6 +4,10 @@
 
     <%= f.input :name %>
     <%= f.input :address %>
-    <%= f.button :submit %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <div class='text-white'><%= f.button :submit %></div>
+     <%# <div class="flex justify-end">
+      <%= link_to 'Add Space', new_venue_space_path(@venue), class:'py-2 px-4 no-underline bg-blue-200 text-blue-900 rounded-md' %>
+    <%# </div> %> %>
 
 <% end %>

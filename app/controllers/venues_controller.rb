@@ -1,10 +1,11 @@
 class VenuesController < ApplicationController
-  #  before_action :set_venue, only: %i[show edit update destroy]
+   before_action :set_venue, only: %i[show edit update destroy]
   def index
     @venues = Venue.all
   end
 
   def show
+    @spaces = @venue.spaces
   end
 
   def new
@@ -16,7 +17,7 @@ class VenuesController < ApplicationController
     @venue = Venue.new(venue_params)
     @venue.user = current_user
     if @venue.save
-      redirect_to @venue
+      redirect_to new_venue_space_path(@venue)
     else
       render :new
     end
@@ -49,7 +50,7 @@ class VenuesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def venue_params
-    params.require(:venue).permit(:name, :address)
+    params.require(:venue).permit(:name, :address, photos: [])
   end
   # Use callbacks to share
 end

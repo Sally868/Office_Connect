@@ -14,4 +14,5 @@ class Venue < ApplicationRecord
     end
   end
   after_validation :geocode
+  has_many_attached :photos
 end

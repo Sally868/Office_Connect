@@ -33,6 +33,8 @@ gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
+
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
@@ -62,4 +64,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'simple_calendar', '~> 2.4'
+<<<<<<< HEAD
 gem 'geocoder'
+=======
+
+gem 'cloudinary', '~> 1.16.0'
+>>>>>>> 79b7d9e60d1a44cb704c4a22af84196a713ba053
