@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+<h1>bookings</h1>
+<% @bookings.each do |booking| %>
+    <%= booking.start.strftime("%d/%m/%Y %I-%M%p") %>
+    <%= booking.finish.strftime("%d/%m/%Y %I-%M%p") %>
+    <%= booking.space.name %>
+<% end %>
+=======
 <section>
   <%# impliment/display the capacity in squares/grid %>
 
@@ -108,3 +116,4 @@
 
 
 <%# eventListener on click %>
+>>>>>>> master
