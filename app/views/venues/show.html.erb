@@ -18,6 +18,11 @@
             <p class="text-sm font-medium text-gray-700 sm:mb-1"><%= @venue.suburb %>, <%= @venue.state %>, <%= @venue.country %></p>
           </div>
 
+    <div class="p-10 text-white">
+      <h1><%= @venue.name %></h1>
+      <div class="d-flex">
+        <div>
+         <%# <%= cl_image_tag(@venue.photos.first.key, :cloud_name => 'swethapattanshetty', height: 300, width: 400, crop: :fill) %> %>
         </div>
           <hr class="w-24 border-gray-400 hidden sm:block">
       </div>
@@ -83,6 +88,7 @@
         <% end %>
       </div>
 
+<<<<<<< HEAD
   </div>
 </section>
 
@@ -96,3 +102,9 @@
           <% @spaces.each do |space| %>
             <%# <%= render 'space', space: space
           <% end %> %> %>
+=======
+      <% end %>
+    </div>
+
+</div>
+>>>>>>> master

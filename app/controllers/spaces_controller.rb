@@ -1,10 +1,15 @@
 class SpacesController < ApplicationController
-   def index
+   before_action :set_space, only: %i[show edit update destroy]
+ 
+  def index
     @venue = Venue.find(params[:venue_id])
     @spaces = Space.all
   end
 
   def show
+    def all
+      booking = Booking.order(date: :asc)
+     end
   end
 
   def new
@@ -39,12 +44,12 @@ class SpacesController < ApplicationController
   def destroy
     # authorize if owner -> yes. else no
     @space.destroy
-    redirect_to spaces_path
+    redirect_to venue_path(@space.venue)
   end
 
   private
 
-  def set_venue
+  def set_space
     @space = Space.find(params[:id])
 
   end
