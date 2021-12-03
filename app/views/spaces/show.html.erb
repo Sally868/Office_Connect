@@ -1,7 +1,8 @@
 <h1>Booked</h1>
 
-<% @venues.each do |venue| %>
-    <%= venue.space.name %>
-    
+
+<% @space.bookings.each do |booking| %>
+    <%= booking.user.email %>
+    <%= booking.start.strftime("%d/%m/%Y %I-%M%p") %>
+    <%= booking.finish.strftime("%d/%m/%Y %I-%M%p") %> <br>
 <% end %>
-<section>
