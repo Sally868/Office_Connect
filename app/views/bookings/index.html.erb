@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<h1>bookings</h1>
-<% @bookings.each do |booking| %>
-    <%= booking.start.strftime("%d/%m/%Y %I-%M%p") %>
-    <%= booking.finish.strftime("%d/%m/%Y %I-%M%p") %>
-    <%= booking.space.name %>
-<% end %>
-=======
-<section>
-<h1>Choose a venue</h1>
-
-
-<div>
-  <%# VENUE CARDS  %>
-</div>
-</section>
-
-
-
-<section>
-  <%# impliment/display the capacity in squares/grid %>
-=======
->>>>>>> f20ad7c37c8d1793a178fffb871c670497894819
-
 <h1>bookings</h1>
 <% @bookings.each do |booking| %>
     <%= booking.start.strftime("%d/%m/%Y %I-%M%p") %>
@@ -64,41 +39,41 @@
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Role
               </th>
-              
+
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
             <% @bookings.each do |booking| %>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">
-                
+
                     <div class="text-sm font-medium text-gray-900">
                       <%= booking.space.name %>
                     </div>
-                      
-                   
+
+
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
                     <%=  booking.start.strftime("%d/%m/%Y %I-%M%p")%>
                   </div>
-                  
+
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
                     <%= booking.finish.strftime("%d/%m/%Y %I-%M%p")%>
                   </div>
                 </td>
-                
+
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
                     <%= link_to 'Delete', booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to remove your booking?"} %>
                   </div>
                 </td>
 
-                
+
             <% end  %>
-            
+
           </tbody>
         </table>
       </div>
@@ -126,4 +101,3 @@
 <%# eventListener on click %>
 
 <div class="text-center m-4"><%= link_to 'Back', venues_path %></div>
-

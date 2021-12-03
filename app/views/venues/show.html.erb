@@ -4,7 +4,7 @@
       <h1><%= @venue.name %></h1>
       <div class="d-flex">
         <div>
-         <%= cl_image_tag(@venue.photos.first.key, :cloud_name => 'swethapattanshetty', height: 300, width: 400, crop: :fill) %>
+         <%= cl_image_tag(@venue.photos.first.key, :cloud_name => 'swethapattanshetty', height: 300, width: 400, crop: :fill) if @venue.photos.first %>
         </div>
         <div>
          <% if @venue.photos.second.present? %>
