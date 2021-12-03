@@ -17,6 +17,8 @@ export default class extends Controller {
   }
 
 
+
+
   selectDateTime (event) {
     console.log("startDragSelect")
     const clickedElement = event.currentTarget
