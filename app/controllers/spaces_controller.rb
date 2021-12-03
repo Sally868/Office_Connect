@@ -1,11 +1,15 @@
 class SpacesController < ApplicationController
    before_action :set_space, only: %i[show edit update destroy]
-   def index
+ 
+  def index
     @venue = Venue.find(params[:venue_id])
     @spaces = Space.all
   end
 
   def show
+    def all
+      booking = Booking.order(date: :asc)
+     end
   end
 
   def new

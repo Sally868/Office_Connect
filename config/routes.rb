@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   end
 
   resources :venues do
-    resources :spaces, only: [:new, :create, :index]
-    resources :bookings, only: [:show]
+    resources :spaces, only: [:new, :create, :index] do
+      resources :bookings, only: [:show ]
+    end
   end
   
   resources :bookings, only: [:index, :destroy]
