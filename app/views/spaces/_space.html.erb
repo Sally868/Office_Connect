@@ -4,7 +4,7 @@
       <div>
         <h2 class="text-xl mt-1"><%= space.name %></h2>
         <h3 class="text-xs px-2 py-1 bg-blue-200 text-blue-600 inline rounded-md"><%= space.capacity %></h3>
-        <% if @space.photo.attached? %>
+        <% if space.photo.attached? %>
         <%= cl_image_tag space.photo.key, height: 300, width: 400, crop: :fill %>
         <% end %>
       </div>
