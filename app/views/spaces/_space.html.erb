@@ -6,14 +6,10 @@
         <h2 class="text-xl mt-1"><%= space.name %></h2>
         <h3 class="text-xs px-2 py-1 bg-blue-200 text-blue-600 inline rounded-md"><%= space.capacity %></h3>
 
-        <% if space.photo.attached? %>
-        <%= cl_image_tag space.photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
       </div>
     </div>
     <div class="flex justify-end">
       <%= link_to 'Book the slot', new_space_booking_path(space), data: {turbolinks:"false"}, class:'py-2 px-4 no-underline bg-yellow-200 text-yellow-900 rounded-md' %>
-      <%= button_to 'Delete space', space_path(space), method: :delete, data: { confirm: "Are you sure you want to delete space?"}, class:'py-2 px-4 no-underline bg-yellow-200 text-yellow-900 rounded-md' %>
     </div>
   </div>
  </div>
@@ -21,9 +17,13 @@
 
 <div class="p-4">
   <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-xl shadow overflow-hidden">
-    <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://images.unsplash.com/photo-1603673329776-28248af53fc0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="blog">
+    <div class="lg:h-48 md:h-36 w-full object-cover object-center bg-gray-200">
+      <% if space.photo.attached? %>
+        <%= cl_image_tag space.photo.key, height: 300, width: 400, crop: :fill, class: 'w-full h-full object-cover' %>
+      <% end %>
+    </div>
     <div class="p-6">
-      <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Space Name</h1>
+      <h1 class="title-font text-lg font-medium text-gray-900 mb-3"><%= space.name %></h1>
       <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><%= @venue.name %></h2>
       <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
       <div class="flex-row-reverse justify-between">
@@ -33,6 +33,7 @@
         </div>
         <button class="flex-col text-white py-1 px-6 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500">Book now</button>
         <%= link_to 'Add Space', new_venue_space_path(@venue), class:'py-2 px-4 no-underline bg-blue-200 text-blue-900 rounded-md' %>
+        <%= button_to 'Delete space', space_path(space), method: :delete, data: { confirm: "Are you sure you want to delete space?"}, class:'py-2 px-4 no-underline bg-yellow-200 text-yellow-900 rounded-md' %>
       </div>
     </div>
   </div>
