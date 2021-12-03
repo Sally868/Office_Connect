@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.where(params[:space_id])
   end
 
   # new_venue_space_booking GET /spaces/:space_id/bookings/new(.:format)/bookings#new
