@@ -8,8 +8,9 @@
 user = User.create(email: 'vivien@gmail.com', password: '123456')
 user2 = User.create(email: "george@gmail.com", password: "123456")
 
-venue = Venue.create(name: "Inspire9", address: "42 stewart street, richmond", user: user)
-venue = Venue.create(name: "InspireCoders", address: " 32 erin street, richmond", user: user)
+venue = Venue.create(name: "Inspire9", address: "42 Stewart street, richmond", user: user)
+venue = Venue.create(name: "InspireCoders", address: "32 Erin street, richmond", user: user2)
+venue = Venue.create(name: "99 Designs", address: "42 stewart street, richmond", user: user2)
 
 space = Space.create(name:"Meeting room", capacity:8, venue: venue, description: "A spacious room perfect for groups. Very comfy and sound proof.")
 space = Space.create(name:"Open desk", capacity:12, venue: venue, description: "A spacious room perfect for groups. Very comfy and sound proof.")
@@ -26,4 +27,11 @@ Venue.all.each_with_index do |venue, index|
   file = URI.open(url)
   venue.photos.attach(io: file, filename: "#{venue.name}.jpg", content_type: "image/jpg")
   venue.save
+end
+
+Space.all.each_with_index do |space, index|
+  url = images[index]
+  file = URI.open(url)
+  space.photo.attach(io: file, filename: "#{space.name}.jpg", content_type: "image/jpg")
+  space.save
 end
