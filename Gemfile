@@ -65,6 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'simple_calendar', '~> 2.4'
 
+
 gem 'geocoder'
 
 gem 'cloudinary', '~> 1.16.0'

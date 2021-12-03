@@ -1,10 +1,15 @@
 class SpacesController < ApplicationController
-   def index
+   before_action :set_venue, only: [:show]
+
+  def index
     @venue = Venue.find(params[:venue_id])
     @spaces = Space.all
   end
 
   def show
+    def all
+      booking = Booking.order(date: :asc)
+     end
   end
 
   def new

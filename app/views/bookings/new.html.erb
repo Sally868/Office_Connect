@@ -40,7 +40,7 @@
             <% 8.times do |index_hr| %>
                 <tr>
                     <td class="relative w-16 text-xs text-gray-600" >
-                        <h4 class="absolute top-0 transform -translate-y-1/2 "><%= @monday.change({hour: 9 + index_hr}).strftime("%l %p") %></h4>
+                        <h4 class="absolute top-0 transform -translate-y-1/2 "><%= @monday.change({hour: 9 + index_hr}).strftime("%l %p")%></h4>
                     </td>
                     <% 5.times do |index_day| %>
                         <% start = (@monday + index_day.days).change({ hour: start_time + index_hr + 1 }) %>
