@@ -1,4 +1,21 @@
+<h1>bookings</h1>
+<% @bookings.each do |booking| %>
+    <%= booking.start.strftime("%d/%m/%Y %I-%M%p") %>
+    <%= booking.finish.strftime("%d/%m/%Y %I-%M%p") %>
+    <%= booking.space.name %>
+<% end %>
+<section>
+<h1>Choose a venue</h1>
 
+
+<div>
+  <%# VENUE CARDS  %>
+</div>
+</section>
+
+
+
+<section>
   <%# impliment/display the capacity in squares/grid %>
 
   <h1> All Bookings </h1>
