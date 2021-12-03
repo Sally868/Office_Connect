@@ -5,7 +5,7 @@
     <p>Your meeting room on-demand</p> %>
     <h1>'Office Connect' brings office spaces to creative people!</h1>
     <p>Change your life and work in teams at one of our spaces around Melbourne.</p>
-    <a><%= link_to "Start now", "#", class: "btn btn-gradient mt-4" %></a>
+    <%= link_to "Start now", new_user_session_path, class: "btn btn-gradient mt-4" %>
   </div>
 </div>
 
@@ -14,7 +14,7 @@
   <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
     <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
       <h1 class="title-font font-medium text-3xl text-white">Get started by signing up to book a working space.</h1>
-      <p class="leading-relaxed mt-4">Wheter on your own or with co-workers, there are plenty of room for you to choose from.</p>
+      <p class="leading-relaxed mt-4">Weather on your own or with co-workers, there are plenty of rooms for you to choose from.</p>
     </div>
     <div class="lg:w-2/6 md:w-1/2 bg-gray-800 bg-opacity-50 rounded-md border-t-2 border-r-2 border-gray-800 p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
       <h2 class="text-white text-xl font-medium title-font mb-2">Sign Up</h2>
@@ -28,8 +28,6 @@
       </div>
       <button class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded-md text-lg">
       <%= link_to "Sign Up", new_user_session_path, class: "nav-link" %></button>
-      <p class="text-xs mt-3">iterally you probably haven't heard of them jean shorLts.</p>
-
     </div>
   </div>
 </section>
