@@ -4,14 +4,12 @@
     <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
       <div class="flex justify-start lg:w-0 lg:flex-1">
         <a href="#">
-          
           <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-blue-600.svg" alt="">
         </a>
           <div class="ml-3 text-xl text-gray-100"><%= link_to "Office Connect", root_path%></div>
       </div>
       <div class="-mr-2 -my-2 md:hidden">
         <button type="button" class="rounded-md p-2 inline-flex items-center justify-center text-gray-100 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600" aria-expanded="false">
-          <span class="sr-only">Open menu</span>
           <!-- Heroicon name: outline/menu -->
           <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -21,7 +19,7 @@
       <nav class="hidden md:flex space-x-10">
         <div class="relative">
           <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-          <button type="button" class="text-gray-100 group rounded-md inline-flex items-center text-base font-medium hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600" aria-expanded="false">
+          <button type="button" class="text-gray-100 group rounded-md inline-flex items-center text-base font-medium hover:text-gray-400" aria-expanded="false">
 
             <span>About</span>
             <!--
@@ -44,17 +42,17 @@
           -->
 
         </div>
-        <%= link_to "Booking", bookings_path, class: "nav-link" %>
+        <%= link_to "Booking", bookings_path, class:"text-gray-100 text-decoration-none group rounded-md inline-flex items-center text-base font-medium hover:text-gray-400" %>
         <%# <a href="" class="text-base font-medium text-gray-100 hover:text-gray-400">
           Booking
         </a> %>
-        <a href="#" class="text-base font-medium text-gray-100 hover:text-gray-400">
-          How to
-        </a>
+        <%= link_to "Home", root_path, class:"text-gray-100 text-decoration-none group rounded-md inline-flex items-center text-base font-medium hover:text-gray-400 " %>
+
+        <%= link_to "Venues", venues_path, class:"text-gray-100 text-decoration-none group rounded-md inline-flex items-center text-base font-medium hover:text-gray-400 " %>
 
         <div class="relative">
           <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-          <button type="button" class="text-gray-100 group rounded-md inline-flex items-center text-base font-medium hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" aria-expanded="false">
+          <button type="button" class="text-gray-100 group rounded-md inline-flex items-center text-base font-medium hover:text-gray-400" aria-expanded="false">
             <span>More</span>
             <!--
               Heroicon name: solid/chevron-down
@@ -80,7 +78,7 @@
       <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 
         <% if current_user %>
-           <%= link_to destroy_user_session_path, method: :delete, class:'whitespace-nowrap text-base font-medium text-gray-100 hover:text-gray-400' do %>
+           <%= button_to destroy_user_session_path, method: :delete, class:'whitespace-nowrap text-base font-medium text-gray-100 hover:text-gray-400' do %>
             Logout
           <% end %>
         <% else %>
