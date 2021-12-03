@@ -1,18 +1,25 @@
- <div class="w-full flex mb-4 p-2 rounded-2xl hover:bg-gray-100">
-  <div class="p-2 pl-4 flex flex-col justify-between flex-grow-1">
-    <div class="flex justify-between">
-      <div>
-        <h2 class="text-xl mt-1"><%= space.name %></h2>
-        <h3 class="text-xs px-2 py-1 bg-blue-200 text-blue-600 inline rounded-md"><%= space.capacity %></h3>
-
-        <% if space.photo.attached? %>
-        <%= cl_image_tag space.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="p-4">
+  <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-xl shadow overflow-hidden">
+    <div class="lg:h-48 md:h-36 w-full object-cover object-center bg-gray-200">
+      <% if space.photo.attached? %>
+        <%= cl_image_tag space.photo.key, height: 300, width: 400, crop: :fill, class: 'w-full h-full object-cover' %>
+      <% end %>
+    </div>
+    <div class="p-6">
+      <h1 class="title-font text-lg font-medium text-gray-900 mb-3"><%= space.name %></h1>
+      <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><%= @venue.name %></h2>
+      <p class="leading-relaxed mb-3"><%= space.description %></p>
+      <div class="flex-row justify-end">
+        <div class="flex-row text-gray-600 mr-3 inline-flex items-right lg:ml-auto md:ml-0 ml-auto leading-none text-sm py-1">
+          <i class="fas fa-laptop pr-2"></i>
+          <p><%= space.capacity %> seats</p>
+        </div>
+        <%= link_to 'Book now', new_space_booking_path(space), data: {turbolinks:"false"}, class:'flex-col text-white py-1 px-6 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500' %>
+        <%= link_to 'Add Space', new_venue_space_path(@venue), class:'py-2 px-4 no-underline bg-blue-200 text-blue-900 rounded-md' %>
+        <% if current_user.venues.include?(@venue) %>
+          <%= button_to 'Delete space', space_path(space), method: :delete, data: { confirm: "Are you sure you want to delete space?"}, class:'py-2 px-4 no-underline bg-yellow-200 text-yellow-900 rounded-md' %>
         <% end %>
       </div>
     </div>
-    <div class="flex justify-end">
-      <%= link_to 'Book the slot', new_space_booking_path(space), data: {turbolinks:"false"}, class:'py-2 px-4 no-underline bg-yellow-200 text-yellow-900 rounded-md' %>
-      <%= button_to 'Delete space', space_path(space), method: :delete, data: { confirm: "Are you sure you want to delete space?"}, class:'py-2 px-4 no-underline bg-yellow-200 text-yellow-900 rounded-md' %>
-    </div>
   </div>
- </div>
+</div>
