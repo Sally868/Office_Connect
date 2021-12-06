@@ -12,8 +12,11 @@
     "popper.js": "^1.16.1",
     "stimulus": "^3.0.1",
     "turbolinks": "^5.2.0",
+    "web-push": "^3.4.5",
     "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "workbox-webpack-plugin": "^4.3.1"
+
   },
   "version": "0.1.0",
   "devDependencies": {
