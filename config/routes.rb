@@ -15,7 +15,12 @@ Rails.application.routes.draw do
       resources :bookings, only: [:show ]
     end
   end
-  
+
   resources :bookings, only: [:index, :destroy]
   get 'dashboard', to: 'dashboards#show', as: :dashboard
+
+
+  namespace :api, defaults: { format: :json } do
+    post 'webpush/subscribe', to: 'webpush#subscribe'
+  end
 end

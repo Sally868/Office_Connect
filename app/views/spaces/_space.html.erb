@@ -15,7 +15,7 @@
           <p><%= space.capacity %> seats</p>
         </div>
         <%= link_to 'Book now', new_space_booking_path(space), data: {turbolinks:"false"}, class:'flex-col text-white py-1 px-6 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500' %>
-        <%= link_to 'Add Space', new_venue_space_path(@venue), class:'py-2 px-4 no-underline bg-blue-200 text-blue-900 rounded-md' %>
+<%# ADMIN %>
         <% if current_user.venues.include?(@venue) %>
           <%= button_to 'Delete space', space_path(space), method: :delete, data: { confirm: "Are you sure you want to delete space?"}, class:'py-2 px-4 no-underline bg-yellow-200 text-yellow-900 rounded-md' %>
         <% end %>
