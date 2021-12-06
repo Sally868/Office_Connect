@@ -14,7 +14,7 @@
                   <div class="flex-col px-2">
                     <%= f.input :finish, as: :string, input_html: {data: {booking_target:'finish'}} %>
                   </div>
-                  <div class="flex-col px-2">
+                  <div class="block px-2 justify-center">
                     <%= f.submit class: 'w-full align-middle bg-blue-300 rounded-md py-2 px-8 flex items-center justify-center text-base font-medium text-blue-900 hover:text-blue-800 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-blue-500' %>
                   </div>
                 </div>
@@ -25,7 +25,7 @@
 
                     Week:
                     <%= link_to 'Prev', new_space_booking_path(@space, week_start: @monday - 7.day), data: {turbolinks:"false"} %>
-                    |
+                    <p>|</p>
                     <%= link_to 'Next', new_space_booking_path(@space, week_start: @monday + 7.day), data: {turbolinks:"false"} %>
                 </div>
 
