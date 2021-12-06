@@ -12,9 +12,9 @@ venue = Venue.create(name: "Inspire9", address: "42 Stewart street, richmond", u
 venue = Venue.create(name: "InspireCoders", address: "32 Erin street, richmond", user: user2)
 venue = Venue.create(name: "99 Designs", address: "42 stewart street, richmond", user: user2)
 
-space = Space.create(name:"Meeting room", capacity:8, venue: venue, description: "A spacious room perfect for groups. Very comfy and sound proof.")
-space = Space.create(name:"Open desk", capacity:12, venue: venue, description: "A spacious room perfect for groups. Very comfy and sound proof.")
-space = Space.create(name:"Classroom", capacity:10, venue: venue, description: "A spacious room perfect for groups. Very comfy and sound proof.")
+space = Space.create(name: "Meeting room", capacity: 8, venue: venue, description: "A spacious room perfect for groups.")
+space = Space.create(name: "Open desk", capacity: 12, venue: venue, description: "A spacious room perfect for groups.")
+space = Space.create(name: "Classroom", capacity: 10, venue: venue, description: "A spacious room perfect for groups.")
 
 Booking.create(start: DateTime.now, finish: DateTime.now + 1.hours, space: space, user: user2)
 
