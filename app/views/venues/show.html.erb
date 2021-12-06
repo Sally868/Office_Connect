@@ -3,28 +3,34 @@
   <%# VENUE NAME & ADDRESS %>
     <div class="sm:px-8 sm:py-6 md:py-10">
       <div class="relative z-10 pb-3 sm:bg-none">
-        <h2 class="text-xl font-semibold text-gray-900 sm:text-2xl sm:leading-7 sm:text-black md:text-3xl"><%= @venue.name %></h2>
-        <div class="col-start-1 row-start-2">
-          <div class="flex items-left text-sm font-medium sm:mt-2 sm:mb-2">
-            <svg width="20" height="20" fill="currentColor" class="text-blue-700">
-              <path d="M9.05 3.691c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.372 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.539 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.784-.57-.381-1.81.587-1.81H7.03a1 1 0 00.95-.69L9.05 3.69z" />
-            </svg>
-            <div class="ml-1">
-              <span class="text-gray-900">4.94</span>
-              <span class="sm:hidden md:inline">(28)</span>
+        <h2 class="text-xl font-semibold font-sans text-gray-900 sm:text-2xl sm:leading-7 sm:text-black md:text-3xl"><%= @venue.name %></h2>
+        <div class="col-start-1 row-start-2 font-sans">
+          <div class="flex items-left justify-between text-sm font-medium sm:mt-2 sm:mb-2">
+            <div class="flex">
+              <svg width="20" height="20" fill="currentColor" class="text-blue-700">
+                <path d="M9.05 3.691c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.372 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.539 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.784-.57-.381-1.81.587-1.81H7.03a1 1 0 00.95-.69L9.05 3.69z" />
+              </svg>
+              <div class="ml-1">
+                <span class="text-gray-900">4.94</span>
+                <span class="sm:hidden md:inline">(28)</span>
+              </div>
+              <div class="text-base font-normal mx-2">·</div>
+              <p class="text-sm font-medium text-gray-700 sm:mb-1"><%= @venue.suburb %>, <%= @venue.state %>, <%= @venue.country %></p>
             </div>
-            <div class="text-base font-normal mx-2">·</div>
-            <p class="text-sm font-medium text-gray-700 sm:mb-1"><%= @venue.suburb %>, <%= @venue.state %>, <%= @venue.country %></p>
+            <%# ADMIN %>
+            <div class="flex justify-end">
+              <%= link_to 'Add Space', new_venue_space_path(@venue), class:'py-1 px-2 no-underline border text-blue-900 rounded-md' %>
+            </div>
           </div>
 
-    <div class="text-white">
-      <h1><%= @venue.name %></h1>
-      <div class="d-flex">
-        <div>
-         <%# <%= cl_image_tag(@venue.photos.first.key, :cloud_name => 'swethapattanshetty', height: 300, width: 400, crop: :fill) %> %>
-        </div>
+    <%# <div class="text-white">
+      <h1><%= @venue.name </h1>
+      <%# <div class="d-flex">
+        <div> %>
+         <%# <%= cl_image_tag(@venue.photos.first.key, :cloud_name => 'swethapattanshetty', height: 300, width: 400, crop: :fill) %>
+        <%# </div>
           <hr class="w-24 border-gray-400 hidden sm:block">
-      </div>
+      </div> %>
 
       <div class="w-full h-96 grid grid-cols-3 grid-rows-2 gap-2">
         <div class="relative col-span-3 row-span-2 md:col-span-2">

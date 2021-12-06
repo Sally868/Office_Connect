@@ -1,0 +1,10 @@
+{
+  "name": "OfficeConnect",
+  "short_name": "OfficeConnect",
+  "start_url": "/",
+  "lang": "en-GB",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#27bbd5",
+  "background_color": "#ffffff"
+}
