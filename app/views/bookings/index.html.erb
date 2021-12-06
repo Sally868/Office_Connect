@@ -1,93 +1,60 @@
-<h1>bookings</h1>
-<% @bookings.each do |booking| %>
-    <%= booking.start.strftime("%d/%m/%Y %I-%M%p") %>
-    <%= booking.finish.strftime("%d/%m/%Y %I-%M%p") %>
-    <%= booking.space.name %>
-<% end %>
-<section>
-<h1>Choose a venue</h1>
-
-
-<div>
-  <%# VENUE CARDS  %>
-</div>
-</section>
-
-
-
-<section>
-  <%# impliment/display the capacity in squares/grid %>
-
-  <h1> All Bookings </h1>
-
-<div class="flex flex-col">
-  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+<section class="footer-ht bg-white p-8">
+  <div class="d-flex justify-content-center">
+    <div class="h-full mb-4 p-2 rounded-2xl hover:bg-gray-100">
+      <h1 class="d-flex justify-content-center mt-4 mb-3 font-weight-bold"> All Bookings </h1>
       <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-        <table class="min-w-full divide-y divide-gray-200">
-          <thead class="bg-gray-50">
-            <tr>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Room
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Start day
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Finish day
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Role
-              </th>
-
-            </tr>
-          </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
-            <% @bookings.each do |booking| %>
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap">
-
-                    <div class="text-sm font-medium text-gray-900">
-                      <%= booking.space.name %>
-                    </div>
-
-
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">
-                    <%=  booking.start.strftime("%d/%m/%Y %I-%M%p")%>
-                  </div>
-
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">
-                    <%= booking.finish.strftime("%d/%m/%Y %I-%M%p")%>
-                  </div>
-                </td>
-
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">
-                    <%= link_to 'Delete', booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to remove your booking?"} %>
-                  </div>
-                </td>
-
-
-            <% end  %>
-
-          </tbody>
-        </table>
+        <div class="flex flex-col">
+          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-grey-100">
+                  <tr>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Room
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Start day
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Finish day
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <% @bookings.each do |booking| %>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="text-sm font-medium text-gray-900">
+                            <%= booking.space.name %>
+                          </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">
+                          <%=  booking.start.strftime("%d/%m/%Y %I-%M%p")%>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">
+                          <%= booking.finish.strftime("%d/%m/%Y %I-%M%p")%>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">
+                          <%= link_to 'Delete', booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to remove your booking?"} %>
+                        </div>
+                      </td>
+                    </tr>
+                  <% end  %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+      <br>
+    <div class="d-flex justify-content-end">
+    <%= link_to 'Back', venues_path , class:"btn-vid"%>
   </div>
-</div>
-
-
-
-
-<%# https://www.interact-lighting.com/global/what-is-possible/interact-office/workspace-app %>
-<%# url('https://www.interact-lighting.com/b-dam/b2b-li/en_AA/interact/what-is-possible/interact-office/software/workspace-app/workspace-app-masthead-t.jpg') %>
-
-
-<%# eventListener on click %>
-
-<div class="text-center m-4"><%= link_to 'Back', venues_path %></div>
+</section>
