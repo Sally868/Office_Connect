@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
-
-  before_action :set_booking, only: %i[ destroy ]
-  before_action :set_space, only: %i[ new create ]
+  before_action :set_booking, only: %i[destroy]
+  before_action :set_space, only: %i[new create]
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def index
@@ -14,7 +13,6 @@ class BookingsController < ApplicationController
 
   # new_venue_space_booking GET /spaces/:space_id/bookings/new(.:format)/bookings#new
   def new
-    
     @booking = Booking.new
     #  http://localhost:3000/spaces/5/bookings/new?week_start=2021-11-29T00%3A00%3A00%2B10%3A30
     if params[:week_start] && params[:week_start] > DateTime.now
@@ -33,22 +31,16 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.space = @space
     @booking.user = current_user
-
     if params[:week_start] && params[:week_start] > DateTime.now
-
       @monday = DateTime.parse(params[:week_start])
     else
       @monday = DateTime.now.beginning_of_week
-
     end
-
     if @booking.save
-      
       redirect_to bookings_path
     else
       render :new
     end
-   
   end
 
   def destroy
