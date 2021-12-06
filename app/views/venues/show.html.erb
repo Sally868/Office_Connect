@@ -19,7 +19,7 @@
             </div>
             <%# ADMIN %>
             <div class="flex justify-end">
-              <%= link_to 'Add Space', new_venue_space_path(@venue), class:'py-1 px-2 no-underline border text-blue-900 rounded-md' %>
+              <%= link_to '+ New Space', new_venue_space_path(@venue), class:'py-1 px-2 no-underline border text-blue-900 rounded-md' %>
             </div>
           </div>
 
@@ -68,13 +68,27 @@
 <section class="bg-white text-gray-600 body-font">
   <div class="container px-5 pb-24 mx-auto flex">
   <%# SPACE CARDS %>
-    <div class="w-2/3">
+    <div class="w-1/2">
       <div class="-m-6">
         <% @venue.spaces.each do |space| %>
           <%= render 'spaces/space', space: space %>
         <% end %>
       </div>
+    </div>
 
+  <%# MAP %>
+  <%# <div class="block px-5 pb-24 mx-auto flex"> %>
+    <div class="w-1/2">
+      <div class="relative pl-2 sticky top-4">
+        <%# <%= render 'venues/venue', venue: venue %>
+        <div id="map"
+        class="rounded-xl"
+          style="width: 100%; height: 600px;"
+          data-markers="<%= [{lat: @venue.latitude, lng: @venue.longitude}].to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        </div>
+      </div>
+    <%# </div> %>
   </div>
 </section>
 
