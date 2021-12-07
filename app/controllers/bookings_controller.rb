@@ -17,9 +17,9 @@ class BookingsController < ApplicationController
     #  http://localhost:3000/spaces/5/bookings/new?week_start=2021-11-29T00%3A00%3A00%2B10%3A30
     if params[:week_start] && params[:week_start] > DateTime.now
 
-      @monday = DateTime.parse(params[:week_start]).utc
+      @monday = DateTime.parse(params[:week_start])
     else
-      @monday = DateTime.now.beginning_of_week.utc
+      @monday = DateTime.now.beginning_of_week
 
     end
 
@@ -37,6 +37,7 @@ class BookingsController < ApplicationController
       @monday = DateTime.now.beginning_of_week
     end
     if @booking.save
+      byebug
       redirect_to bookings_path
     else
       render :new
