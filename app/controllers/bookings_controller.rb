@@ -18,11 +18,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     if params[:week_start] && params[:week_start] > DateTime.now
 
-      @monday = DateTime.parse(params[:week_start])
+      @monday = DateTime.parse(params[:week_start]).utc
     else
-      @monday = DateTime.now.beginning_of_week
+      @monday = DateTime.now.beginning_of_week.utc
 
     end
+    @bookings = Booking.where('start >= ? and finish <= ?', @monday - 1.days, @monday + 7.days)
   end
 
   #  venue_space_bookings POST  /spaces/:space_id/bookings(.:format)/bookings#create
