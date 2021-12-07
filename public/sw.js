@@ -48,4 +48,3 @@ importScripts("/packs/precache-manifest.9f6c566d68768bde4ce443c3c4fca845.js", "h
 
 //   workbox.precaching.precacheAndRoute(self.__precacheManifest);
 // }
-

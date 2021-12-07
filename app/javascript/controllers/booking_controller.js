@@ -18,14 +18,15 @@ export default class extends Controller {
     this.selectedFinishtime = ""
   }
 
-
-
+  connect() {
+    console.log('hello');
+  }
 
   selectDateTime (event) {
     console.log("startDragSelect")
     const clickedElement = event.currentTarget
     const selectedDatetime = clickedElement.dataset.datetime
-    
+
     if (this.isStartSelectionValue) {
         this.selectedStarttime = selectedDatetime
         this.clearAllSelected()
@@ -57,8 +58,6 @@ export default class extends Controller {
         }
     }
 
-
-
     this.isStartSelectionValue = !this.isStartSelectionValue
   }
 
@@ -72,6 +71,7 @@ export default class extends Controller {
     this.cells.forEach((cell) => {
         const datetime = cell.dataset.datetime
         const isBetween = window.moment(datetime).isBetween(this.selectedStarttime, this.selectedFinishtime)
+
       if (isBetween) {
         if (cell.classList.contains('availability-red')) {
           alert("Choose another day please!")
@@ -81,6 +81,6 @@ export default class extends Controller {
         }}
     })  
   
-    
+
   }
 }

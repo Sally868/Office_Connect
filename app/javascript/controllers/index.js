@@ -1,9 +1,11 @@
-// Load all the controllers within this directory and all subdirectories.
+// Load all the controllers within this directory and all subdirectories. 
 // Controller files must be named *_controller.js.
 
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
+
 // import registerServiceWorker from '../registerServiceWorker';
+
 
 const application = Application.start()
 const context = require.context("controllers", true, /_controller\.js$/)
@@ -22,3 +24,4 @@ application.load(definitionsFromContext(context))
 // console.log("hi")
 
 // window.localStorage.setItem('pwa-demo:session', JSON.stringify(window.routeParamsFromRails));
+
