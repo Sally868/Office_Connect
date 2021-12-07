@@ -37,7 +37,6 @@ class BookingsController < ApplicationController
       @monday = DateTime.now.beginning_of_week
     end
     if @booking.save
-      byebug
       redirect_to bookings_path
     else
       render :new

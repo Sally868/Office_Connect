@@ -31,8 +31,12 @@ export default class extends Controller {
         this.clearAllSelected()
         // this.startTarget.value = this.selectedStarttime
         this.startTarget.value = window.moment(selectedDatetime).format();
-
+        if (clickedElement.classList.contains('availability-red')) {
+          alert("Choose another day please!")
+          this.clearAllSelected()
+        } else {
         clickedElement.classList.add('bg-green-500')
+        }
         // find startInputTarget and set value to data-datetime of the element that was just clicked
     } else {
         // find the endInputTarget and set value to data-datetime of the elemnt that was just clicked
@@ -42,7 +46,12 @@ export default class extends Controller {
             console.log(selectedDatetime)
             this.finishTarget.value = window.moment(selectedDatetime).add(60, 'm').format();
             this.selectInBetween()
+            if (clickedElement.classList.contains('availability-red')) {
+              alert("Choose another day please!")
+              this.clearAllSelected()
+            } else {
             clickedElement.classList.add('bg-green-500')
+            }
         } else {
             alert("Finish date must come after start date")
         }
@@ -63,11 +72,15 @@ export default class extends Controller {
     this.cells.forEach((cell) => {
         const datetime = cell.dataset.datetime
         const isBetween = window.moment(datetime).isBetween(this.selectedStarttime, this.selectedFinishtime)
-        if (isBetween) {
-            cell.classList.add('bg-green-500')
-        }
+      if (isBetween) {
+        if (cell.classList.contains('availability-red')) {
+          alert("Choose another day please!")
+          this.clearAllSelected()
+        } else {
+          cell.classList.add('bg-green-500')
+        }}
     })  
+  
     
-
   }
 }
