@@ -71,13 +71,3 @@ export default class extends Controller {
 
   }
 }
-
-
-
-
-
-// Add Form
-// Add start and end inputs
-// add data-booking-target="start" and data-booking-target="end"
-// check to see (in connect() method) if this.startTarget/this.endTarget exists with console.log
-// set the values of these in the selectDateTime method...
