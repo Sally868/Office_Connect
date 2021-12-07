@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
- 
+
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
@@ -18,7 +18,7 @@
   <body class="bg-gray-800">
     <%= render 'shared/navbar' %>
 
-    <div class="rounded-b-3xl pb-10 bg-gray-800 shadow-inner">
+    <div class="rounded-b-3xl pb-10 bg-white">
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>
