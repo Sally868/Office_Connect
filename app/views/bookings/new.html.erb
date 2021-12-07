@@ -1,5 +1,4 @@
 
-
 <div class="container">
     <h1>Choose your date and time</h1>
     <% start_time = 9 %>
@@ -35,9 +34,11 @@
                         <% start = (@monday + index_day.days).change({ hour: start_time + index_hr + 1 }) %>
                         <% start_slot = (@monday + index_day.days).change({ hour: start_time + index_hr}) %>
                         <% end_slot = start_slot + 1.hour %>
+
                         <% booking_count = @bookings.where('start <= ? and finish >= ?',  start_slot, end_slot).count %>
                         <% available = @space.capacity - booking_count %>
                         <% start = (@monday + index_day.days).change({ hour: start_time + index_hr})%>
+
                          <td>
                             <% remaing_capacity = (available.to_f / @space.capacity.to_f)*100 %>
                             <div class="<% if remaing_capacity == 0 %>
