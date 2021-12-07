@@ -5,16 +5,13 @@
     <% start_time = 9 %>
     <div data-controller="booking">
     <table class="booking-grid">
-        
         <div class="container" >
             <div class="space">
-
                 Week:
                 <%= link_to 'Prev', new_space_booking_path(@space, week_start: @monday - 7.day), data: {turbolinks:"false"} %>
                 |
                 <%= link_to 'Next', new_space_booking_path(@space, week_start: @monday + 7.day), data: {turbolinks:"false"} %>
             </div>
-
             <tr style="text-align:center">
                 <td></td>
                 <td>Mon</td>
@@ -22,112 +19,62 @@
                 <td>Wed</td>
                 <td>Thu</td>
                 <td>Fri</td>
-            
             </tr>
-
             <tr>
                 <td></td>
-
                 <% 5.times do |index_day| %>
-                    <td style="text-align:center"><%= (@monday + index_day.days).strftime('%d/%m') %></td>
-
+                    <td style="text-align:center"><%= (@monday + index_day).strftime('%d/%m') %></td>
                 <% end %>
-
-                <div class="container" >
-                  <div class="flex justify-left">
-                    Week:
-                    <%= link_to 'Prev', new_space_booking_path(@space, week_start: @monday - 7.day), data: {turbolinks:"false"} %>
-                    |
-                    <%= link_to 'Next', new_space_booking_path(@space, week_start: @monday + 7.day), data: {turbolinks:"false"} %>
-                  </div>
-                  <tr style="text-align:center">
-                    <td></td>
-                    <td>Mon</td>
-                    <td>Tue</td>
-                    <td>Wed</td>
-                    <td>Thu</td>
-                    <td>Fri</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <% 5.times do |index_day| %>
-                      <td style="text-align:center"><%= (@monday + index_day).strftime('%d/%m') %></td>
-                    <% end %>
-                  </tr>
-                  <% 8.times do |index_hr| %>
-                  <tr>
-                    <td class="relative w-16 text-xs text-gray-800" >
-                      <h4 class="absolute top-0 transform -translate-y-1/2 "><%= @monday.change({hour: 9 + index_hr}).strftime("%l %p")%></h4>
+            </tr>
+            <% 8.times do |index_hr| %>
+                <tr>
+                    <td class="relative w-16 text-xs text-gray-600" >
+                        <h4 class="absolute top-0 transform -translate-y-1/2 "><%= @monday.change({hour: 9 + index_hr}).strftime("%l %p")%></h4>
                     </td>
                     <% 5.times do |index_day| %>
-
+                        <% start = (@monday + index_day.days).change({ hour: start_time + index_hr + 1 }) %>
                         <% start_slot = (@monday + index_day.days).change({ hour: start_time + index_hr}) %>
                         <% end_slot = start_slot + 1.hour %>
-                        <%# @bookings.where('start <= ? and finish >= ?', start_slot, end_slot).count %>
                         <% booking_count = @bookings.where('start <= ? and finish >= ?',  start_slot, end_slot).count %>
                         <% available = @space.capacity - booking_count %>
                         <% start = (@monday + index_day.days).change({ hour: start_time + index_hr})%>
-                        <%# finish = start + 1.hour %>
-                        <%# bookings_num = @space.bookings.where('start < :start and finish', start: start, finish: finish).count %>
-                        
-                        <td>
+                         <td>
                             <% remaing_capacity = (available.to_f / @space.capacity.to_f)*100 %>
-
                             <div class="<% if remaing_capacity == 0 %>
                             availability-red
-                            <% elsif remaing_capacity < 50 && remaing_capacity > 0 %> 
+                            <% elsif remaing_capacity < 50 && remaing_capacity > 0 %>
                             availability-dark-green
-                             <% elsif remaing_capacity >= 50 && remaing_capacity < 70  %> 
+                             <% elsif remaing_capacity >= 50 && remaing_capacity < 70  %>
                             availability-green
-                             <% elsif remaing_capacity >= 70 && remaing_capacity < 100  %> 
+                             <% elsif remaing_capacity >= 70 && remaing_capacity < 100  %>
                             availability-light-green
-                            <% else %> 
+                            <% else %>
                             availability-white
                             <% end%>" id="1d" data-action="click->booking#selectDateTime" data-datetime="<%= start%>">
                                 <% booking_count %>
-                               
                                <p><%= available %> left</p>
-                              
                             </div>
                         </td>
-
-                      <% start = (@monday + index_day.days).change({ hour: start_time + index_hr + 1 }) %>
-                      <%# finish = start + 1.hour %>
-                      <%# bookings_num = @space.bookings.where('start < :start and finish', start: start, finish: finish).count %>
-
-                      <td>
-                        <div id="1d" data-action="click->booking#selectDateTime" data-datetime="<%= start %>">
-                        </div>
-                      </td>
-
                     <% end %>
-                  </tr>
-                  <% end %>
-                  <tr>
-                    <td class="relative w-16 text-xs text-gray-800">
-                      <h4 class="absolute top-0 transform -translate-y-1/2 "><%= @monday.change({hour: 17}).strftime("%l %p") %></h4>
-                    </td>
-                  </tr>
-                </div>
-
-                <tr>
-                  <td class="relative w-16 text-xs text-gray-800">
+                </tr>
+            <% end %>
+             <tr>
+                <td class="relative w-16 text-xs text-gray-600">
                     <h4 class="absolute top-0 transform -translate-y-1/2 "><%= @monday.change({hour: 17}).strftime("%l %p") %></h4>
-
                 </td>
-
             </tr>
-            
             <td></td>
-            
         </div>
-        
     </table>
-        <%= simple_form_for ([@space, @booking]) do |f| %>
+       <%= simple_form_for ([@space, @booking]) do |f| %>
             <%= f.input :start, as: :string, label: false, input_html: {class: 'd-none', data: {booking_target:'start'}} %>
             <%= f.input :finish, as: :string, label: false, input_html: {class: 'd-none', data: {booking_target:'finish'}} %>
             <%= f.submit class: 'w-50 bg-yellow-300 border border-transparent rounded-md py-2 px-8 flex items-center justify-center text-base font-medium text-yellow-700 hover:text-yellow-800 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-yellow-500' %>
-        <% end %>
-
+      <% end %>
     </div>
-  </div>
+ </div>
+
+
+
+
+
