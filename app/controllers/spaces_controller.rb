@@ -1,6 +1,5 @@
 class SpacesController < ApplicationController
-   before_action :set_space, only: %i[show edit update destroy]
- 
+  before_action :set_space, only: %i[show edit update destroy]
   def index
     @venue = Venue.find(params[:venue_id])
     @spaces = Space.all
@@ -19,7 +18,7 @@ class SpacesController < ApplicationController
   end
 
   def create
-    @space= Space.new(space_params)
+    @space = Space.new(space_params)
     @venue = Venue.find(params[:venue_id])
     @space.venue = @venue
     if @space.save
@@ -51,7 +50,6 @@ class SpacesController < ApplicationController
 
   def set_space
     @space = Space.find(params[:id])
-
   end
 
   # Only allow a list of trusted parameters through.
