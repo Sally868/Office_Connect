@@ -1,4 +1,3 @@
-
 <div class="container">
     <h1>Choose your date and time</h1>
     <% start_time = 9 %>
@@ -22,7 +21,6 @@
             <tr>
                 <td></td>
                 <% 5.times do |index_day| %>
-              
                     <td style="text-align:center"><%= (@monday + index_day.days).strftime('%d/%m') %></td>
                 <% end %>
             </tr>
@@ -32,14 +30,11 @@
                         <h4 class="absolute top-0 transform -translate-y-1/2 "><%= @monday.change({hour: 9 + index_hr}).strftime("%l %p")%></h4>
                     </td>
                     <% 5.times do |index_day| %>
-                    
                         <% start_slot = (@monday + index_day.days).change({ hour: start_time + index_hr}) %>
                         <% end_slot = start_slot + 1.hour %>
-
                         <% booking_count = @bookings.where('start <= ? and finish >= ?',  start_slot, end_slot).count %>
                         <% available = @space.capacity - booking_count %>
                         <% start = (@monday + index_day.days).change({ hour: start_time + index_hr})%>
-
                          <td>
                             <% remaing_capacity = (available.to_f / @space.capacity.to_f)*100 %>
                             <div class="<% if remaing_capacity == 0 %>
@@ -75,8 +70,3 @@
       <% end %>
     </div>
  </div>
-
-
-
-
-

@@ -18,14 +18,15 @@ export default class extends Controller {
     this.selectedFinishtime = ""
   }
 
-
-
+  connect() {
+    console.log('hello');
+  }
 
   selectDateTime (event) {
     console.log("startDragSelect")
     const clickedElement = event.currentTarget
     const selectedDatetime = clickedElement.dataset.datetime
-    
+
     if (this.isStartSelectionValue) {
         this.selectedStarttime = selectedDatetime
         this.clearAllSelected()
@@ -48,8 +49,6 @@ export default class extends Controller {
         }
     }
 
-
-
     this.isStartSelectionValue = !this.isStartSelectionValue
   }
 
@@ -66,8 +65,8 @@ export default class extends Controller {
         if (isBetween) {
             cell.classList.add('bg-green-500')
         }
-    })  
-    
+    })
+
 
   }
 }
