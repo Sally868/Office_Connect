@@ -31,17 +31,17 @@ export default class extends Controller {
         this.selectedStarttime = selectedDatetime
         this.clearAllSelected()
         // this.startTarget.value = this.selectedStarttime
-        this.startTarget.value = window.moment(selectedDatetime).utc().format();
+        this.startTarget.value = window.moment(selectedDatetime).format();
 
         clickedElement.classList.add('bg-green-500')
         // find startInputTarget and set value to data-datetime of the element that was just clicked
     } else {
         // find the endInputTarget and set value to data-datetime of the elemnt that was just clicked
-        const dateLarger = window.moment(selectedDatetime).utc().isSameOrAfter(window.moment(this.selectedStarttime));
+        const dateLarger = window.moment(selectedDatetime).isSameOrAfter(window.moment(this.selectedStarttime));
         if (dateLarger) {
             this.selectedFinishtime = selectedDatetime
             console.log(selectedDatetime)
-            this.finishTarget.value = window.moment(selectedDatetime).utc().add(60, 'm').format();
+            this.finishTarget.value = window.moment(selectedDatetime).add(60, 'm').format();
             this.selectInBetween()
             clickedElement.classList.add('bg-green-500')
         } else {
@@ -70,13 +70,3 @@ export default class extends Controller {
 
   }
 }
-
-
-
-
-
-// Add Form
-// Add start and end inputs
-// add data-booking-target="start" and data-booking-target="end"
-// check to see (in connect() method) if this.startTarget/this.endTarget exists with console.log
-// set the values of these in the selectDateTime method...

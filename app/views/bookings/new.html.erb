@@ -21,7 +21,7 @@
             <tr>
                 <td></td>
                 <% 5.times do |index_day| %>
-                    <td style="text-align:center"><%= (@monday + index_day).strftime('%d/%m') %></td>
+                    <td style="text-align:center"><%= (@monday + index_day.days).strftime('%d/%m') %></td>
                 <% end %>
             </tr>
             <% 8.times do |index_hr| %>
@@ -30,7 +30,6 @@
                         <h4 class="absolute top-0 transform -translate-y-1/2 "><%= @monday.change({hour: 9 + index_hr}).strftime("%l %p")%></h4>
                     </td>
                     <% 5.times do |index_day| %>
-                        <% start = (@monday + index_day.days).change({ hour: start_time + index_hr + 1 }) %>
                         <% start_slot = (@monday + index_day.days).change({ hour: start_time + index_hr}) %>
                         <% end_slot = start_slot + 1.hour %>
                         <% booking_count = @bookings.where('start <= ? and finish >= ?',  start_slot, end_slot).count %>
