@@ -4,7 +4,9 @@
 
     <%= f.input :name %>
     <%= f.input :address %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <div class='text-white'><%= f.button :submit %></div>
+
+    <%= f.input :photos, class:"btn btn-primary bg-blue", as: :file, input_html: { multiple: true } %>
+
+    <%= f.button :submit, class:"d-flex justify-content-center text-white py-1 px-6 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500" %>
 
 <% end %>

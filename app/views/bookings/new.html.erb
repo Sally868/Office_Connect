@@ -67,10 +67,11 @@
       <%= simple_form_for ([@space, @booking]) do |f| %>
         <%= f.input :start, as: :string, label: false, input_html: {class: 'd-none', data: {booking_target:'start'}} %>
         <%= f.input :finish, as: :string, label: false, input_html: {class: 'd-none', data: {booking_target:'finish'}} %>
-        <%= f.submit class: 'w-full bg-yellow-300 border border-transparent rounded-md py-2 px-8 flex items-center justify-center text-base font-medium text-yellow-700 hover:text-yellow-800 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-yellow-500' %>
+        <%= f.submit class: 'py-2 px-4 no-underline bg-blue-200 text-blue-900 rounded-md' %>
       <% end %>
     </div>
-   
+
   </div>
 </section>
 
+<%# w-full bg-yellow-300 border border-transparent rounded-md py-2 px-8 flex items-center justify-center text-base font-medium text-yellow-700 hover:text-yellow-800 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-yellow-500 %>
