@@ -1,8 +1,8 @@
 .booking-grid {
     background: gainsboro;
     margin-top: 5px;
-    justify-content: center;
-
+    padding: 1rem;
+    
 
     td div {
 
@@ -45,5 +45,7 @@
 }
 
 .availability-red {
-    background-color: red;
+    background-color: #FF0000;
 }
+
+
