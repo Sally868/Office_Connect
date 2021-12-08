@@ -6,7 +6,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -17,7 +16,6 @@
 
   <body class="bg-gray-800">
     <%= render 'shared/navbar' %>
-
     <div class="rounded-b-3xl pb-10 bg-gray-800">
       <%= yield %>
     </div>
