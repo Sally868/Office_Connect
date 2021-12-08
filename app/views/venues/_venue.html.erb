@@ -17,11 +17,15 @@
       <%= link_to venue_path(venue), class:'p-2 text-color-rgb(44 82 130)' do %>
         <i class="fas fa-plus-square"></i>
       <% end %>
-      <%= link_to edit_venue_path(venue), class:'p-2' do %>
-        <i class="fas fa-user-edit"></i>
+      <% if current_user.venues.include?(@venue) %>
+        <%= link_to edit_venue_path(venue), class:'p-2' do %>
+          <i class="fas fa-user-edit"></i>
+        <% end %>
       <% end %>
-      <%= link_to  venue_path(venue), method: :delete, data: { confirm: "Are you sure you want to delete Venue?"}, class:'p-2' do %>
-        <i class="fas fa-trash-alt " style=""></i>
+      <% if current_user.venues.include?(@venue) %>
+        <%= link_to  venue_path(venue), method: :delete, data: { confirm: "Are you sure you want to delete Venue?"}, class:'p-2' do %>
+          <i class="fas fa-trash-alt " style=""></i>
+        <% end %>
       <% end %>
 
 
