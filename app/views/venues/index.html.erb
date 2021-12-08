@@ -1,4 +1,4 @@
-<div class="bg-white w-screen top-0" style="height: calc(100vh - 70px)">
+<div class="bg-white w-screen top-0" style=" <%# height: calc(100vh - 70px) %>">
   <div class="overflow-scroll h-full p-10">
     <% @venues.each do |venue| %>
       <%= render 'venue', venue: venue %>
@@ -8,8 +8,6 @@
     </div>
   </div>
 </div>
-
-
 
 <script>
   window.routeParamsFromRails = {
