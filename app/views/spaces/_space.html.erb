@@ -16,16 +16,14 @@
         </div>
 <%# ADMIN %>
         <div class="d-flex">
-          <div class="flex px-2
-          ">
+          <div class="flex px-2">
             <% if current_user.venues.include?(@venue) %>
-              <%= link_to  space_path(space), method: :delete, data: { confirm: "Are you sure you want to delete Venue?"}, class:'p-2' do %>
+              <%= link_to  space_path(space), method: :delete, data: { confirm: "Are you sure you want to delete Venue?"}, class:"p-2" do %>
                 <i class="fas fa-trash-alt " style=""></i>
-                <%# <%= button_to 'Delete space', space_path(space), method: :delete, data: { confirm: "Are you sure you want to delete space?"} %>
+                <%# <%= button_to ‘Delete space’, space_path(space), method: :delete, data: { confirm: "Are you sure you want to delete space?"} %>
               <% end %>
             <% end %>
           </div>
-
           <div class="d-flex">
             <%= link_to 'Book now', new_space_booking_path(space), data: {turbolinks:"false"}, class:'flex-col text-white py-1 px-6 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500' %>
           </div>

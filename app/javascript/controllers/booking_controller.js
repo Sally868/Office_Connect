@@ -74,7 +74,7 @@ export default class extends Controller {
 
       if (isBetween) {
         if (cell.classList.contains('availability-red')) {
-          alert("Choose another day please!")
+          alert("The day between are full. Please choose another day!")
           this.clearAllSelected()
         } else {
           cell.classList.add('bg-green-500')
