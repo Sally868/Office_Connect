@@ -3,9 +3,9 @@
     margin-top: 5px;
     justify-content: center;
 
-    
+
     td div {
-        
+
         height: 40px;
         width: 100px;
         border: 1px solid white;
@@ -19,5 +19,32 @@
 
 .space {
     margin-top: 20px;
-    
+
     }
+
+
+
+.footer-ht {
+  height: 70vh;
+}
+
+.availability-white {
+    background-color:white;
+}
+
+.availability-light-green {
+    background-color:HoneyDew;
+}
+
+.availability-green {
+    background-color:green;
+}
+
+.availability-dark-green {
+    background-color: darkgreen;
+}
+
+.availability-red {
+    background-color: red;
+}
+}

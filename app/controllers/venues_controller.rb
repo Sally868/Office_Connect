@@ -1,16 +1,22 @@
 class VenuesController < ApplicationController
-   before_action :set_venue, only: %i[show edit update destroy]
+  before_action :set_venue, only: %i[show edit update destroy]
   def index
     @venues = Venue.all
-    ::WebpushNotification.publish_user_action(
-      user: current_user,
-      title: "test",
-      action: "Added"
-    )
-  end
+    # ::WebpushNotification.publish_user_action(
+      #   user: current_user,
+      #   title: "test",
+      #   action: "Added"
+      # )
+    end
 
-  def show
-    @spaces = @venue.spaces
+    def show
+      @spaces = @venue.spaces
+      # @markers = @venues.geocoded.map do |venue|
+      #   {
+      #     lat: venue.latitude,
+      #     lng: venue.longitude
+      #   }
+      # end
   end
 
   def new
@@ -50,7 +56,6 @@ class VenuesController < ApplicationController
 
   def set_venue
     @venue = Venue.find(params[:id])
-
   end
 
   # Only allow a list of trusted parameters through.
