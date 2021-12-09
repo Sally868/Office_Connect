@@ -36,6 +36,7 @@ class BookingsController < ApplicationController
     else
       @monday = DateTime.now.beginning_of_week
     end
+    
     if @booking.save
       redirect_to bookings_path
     else

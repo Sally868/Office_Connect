@@ -35,22 +35,24 @@
       <div class="w-full h-96 grid grid-cols-3 grid-rows-2 gap-2">
         <div class="relative col-span-3 row-span-2 md:col-span-2">
           <div class="absolute inset-0 w-full h-full object-cover bg-gray-100 sm:rounded-md">
-            <%# <%= cl_image_tag(@venue.photos.first.key, :cloud_name => 'swethapattanshetty') if @venue.photos.first %>
+            <% if @venue.photos.second.present? %>
+              <%= cl_image_tag(@venue.photos.first.key, :cloud_name => 'swethapattanshetty') if @venue.photos.first %>
+            <% end %>
           </div>
-          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="absolute inset-0 w-full h-full object-cover bg-gray-100 sm:rounded-md" />
+          <%# <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="absolute inset-0 w-full h-full object-cover bg-gray-100 sm:rounded-md" /> %>
         </div>
 
         <div class="relative hidden md:block">
-          <%# if @venue.photos.second.present? %>
-          <%#= cl_image_tag(@venue.photos.second.key, :cloud_name => 'swethapattanshetty', height: 300, width: 200, crop: :fill) %>
-          <%# end %>
-          <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1325&q=80" alt="" class="absolute inset-0 w-full h-full object-cover rounded-md bg-gray-100" />
+          <% if @venue.photos.second.present? %>
+            <%= cl_image_tag(@venue.photos.second.key, :cloud_name => 'swethapattanshetty', height: 300, width: 200, crop: :fill) %>
+          <% end %>
+          <%# <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1325&q=80" alt="" class="absolute inset-0 w-full h-full object-cover rounded-md bg-gray-100" /> %>
         </div>
         <div class="relative hidden md:block">
-          <%# <% if @venue.photos.third.present? %>
-            <%# <%= cl_image_tag(@venue.photos.third.key, :cloud_name => 'swethapattanshetty', height: 300, width: 200, crop: :fill) %>
-          <%# <% end %>
-          <img src="https://images.unsplash.com/photo-1525896544042-354764aa27e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="" class="absolute inset-0 w-full h-full object-cover rounded-md bg-gray-100" />
+          <%  if @venue.photos.third.present? %>
+            <%= cl_image_tag(@venue.photos.third.key, :cloud_name => 'swethapattanshetty', height: 300, width: 200, crop: :fill) %>
+          <% end %>
+          <%# <img src="https://images.unsplash.com/photo-1525896544042-354764aa27e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="" class="absolute inset-0 w-full h-full object-cover rounded-md bg-gray-100" /> %>
         </div>
       </div>
 
