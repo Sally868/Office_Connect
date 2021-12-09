@@ -1,32 +1,58 @@
 
- <div class="w-full flex mb-4 p-2 rounded-2xl hover:bg-gray-200">
-  <div class="overflow-hidden rounded-xl flex-shrink-0 h-36 w-36 border-2 border-white shadow">
+ <div class="w-full flex mb-3 p-1 rounded-md hover:bg-gray-200 shadow">
+  <div class="overflow-hidden rounded-md flex-shrink-0 h-36 w-36 border-2 border-white inner-shadow">
     <%= cl_image_tag(venue.photos.first.key, width: 300, height: 300, crop: :fill) if venue.photos.attached? %>
   </div>
   <div class="p-2 pl-4 flex flex-col justify-between flex-grow-1">
-    <div class="flex justify-between">
-      <div>
-
-        <h2 class="text-xl mt-1"><%= venue.name %></h2>
+<%# Put address at the bottom of the name DIV %>
+    <div class="flex-col justify-between">
+      <div class="flex-row">
+        <%= link_to venue_path(venue), class:'group hover:text-gray-500' do %>
+          <h2 class="text-xl font-bold font-sans group-hover:text-gray-800"><%= venue.name %></h2>
+        <% end %>
       </div>
-      <div>
-        <h4 class="text-lg font-semibold"><%= venue.address %></h4>
+      <div class="flex-row">
+        <%= link_to venue_path(venue), class:'group hover:text-gray-400' do %>
+          <h4 class="text-sm font-light text-gray-600"><%= venue.address %></h4>
+        <% end %>
       </div>
     </div>
-     <div class="flex justify-end">
-      <%= link_to venue_path(venue), class:'p-2 text-color-rgb(44 82 130)' do %>
-        <i class="fas fa-plus-square"></i>
-      <% end %>
-      <%= link_to edit_venue_path(venue), class:'p-2' do %>
-        <i class="fas fa-user-edit"></i>
-      <% end %>
-      <%= link_to  venue_path(venue), method: :delete, data: { confirm: "Are you sure you want to delete Venue?"}, class:'p-2' do %>
-        <i class="fas fa-trash-alt " style=""></i>
+
+    <%# BUTTONS %>
+    <div class="flex justify-end items-center">
+
+        <%= link_to venue_path(venue), class:'p-1 group text-color-rgb(44 82 130) hover:no-underline' do %>
+          <div class="d-flex p-1 rounded-md border-2 border-gray-400 items-center group-hover:bg-gray-800 group-hover:text-white">
+            <div class="flex px-3 text-gray-700 group-hover:text-white">
+              <i class="fas fa-plus-square fa-lg pt-1"></i>
+              <p class="px-2">Add</p>
+            </div>
+          </div>
+        <% end %>
+
+      <% if current_user.venues.include?(@venue) %>
+        <%= link_to edit_venue_path(venue), class:'p-2 group text-color-rgb(44 82 130) hover:no-underline' do %>
+          <div class="d-flex p-1 rounded-md border-2 border-gray-400 items-center group-hover:bg-gray-800 group-hover:text-white">
+            <div class="flex px-3 text-gray-700 group-hover:text-white">
+              <i class="fas fa-user-edit fa-lg pt-1"></i>
+              <p class="px-2">Edit</p>
+            </div>
+          </div>
+        <% end %>
       <% end %>
 
+      <% if current_user.venues.include?(@venue) %>
+        <%= link_to  venue_path(venue), method: :delete, data: { confirm: "Are you sure you want to delete Venue?"}, class:'p-2 group text-color-rgb(44 82 130) hover:no-underline' do %>
+          <div class="d-flex p-1 rounded-md border-2 border-gray-400 items-center group-hover:bg-gray-800 group-hover:text-white">
+            <div class="flex px-3 text-gray-700 group-hover:text-white">
+              <i class="fas fa-trash-alt fa-lg pt-1" style=""></i>
+              <p class="px-2">Delete</p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
 
 <%# class:'text-white py-1 px-6 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500' %>
-
     </div>
   </div>
  </div>
