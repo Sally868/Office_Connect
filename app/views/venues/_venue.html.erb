@@ -30,7 +30,7 @@
           </div>
         <% end %>
 
-      <% if current_user.venues.include?(@venue) %>
+      <% if current_user.venues.include?(venue) %>
         <%= link_to edit_venue_path(venue), class:'p-2 group text-color-rgb(44 82 130) hover:no-underline' do %>
           <div class="d-flex p-1 rounded-md border-2 border-gray-400 items-center group-hover:bg-gray-800 group-hover:text-white">
             <div class="flex px-3 text-gray-700 group-hover:text-white">
@@ -41,7 +41,7 @@
         <% end %>
       <% end %>
 
-      <% if current_user.venues.include?(@venue) %>
+      <% if current_user.venues.include?(venue) %>
         <%= link_to  venue_path(venue), method: :delete, data: { confirm: "Are you sure you want to delete Venue?"}, class:'p-2 group text-color-rgb(44 82 130) hover:no-underline' do %>
           <div class="d-flex p-1 rounded-md border-2 border-gray-400 items-center group-hover:bg-gray-800 group-hover:text-white">
             <div class="flex px-3 text-gray-700 group-hover:text-white">
