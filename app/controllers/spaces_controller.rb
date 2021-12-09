@@ -34,7 +34,7 @@ class SpacesController < ApplicationController
 
   def update
     if @space.update(space_params)
-      redirect_to @space, notice: 'Space was successfully updated.'
+      redirect_to venue_path(@space.venue), notice: 'Space was successfully updated.'
     else
       render :edit
     end
