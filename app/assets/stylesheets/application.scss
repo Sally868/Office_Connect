@@ -14,3 +14,52 @@
 @import "pages/index";
 @import "booking";
 @import "pages/about";
+
+.primary-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.second-img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 2px;
+    height: 100%;
+}
+
+.third-img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 20px;
+    height: 100%;
+}
+
+
+.sub-container {
+    display: grid;
+    justify-content: space-between;
+    width: 100%;
+    height: 40vh;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-gap: 0.6rem;
+}
+
+.primary-container {
+    // margin-right: 9rem;
+    height: 40vh;
+    // margin-right: 1rem;
+}
+
+.sencond-container {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
