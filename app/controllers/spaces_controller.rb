@@ -54,7 +54,7 @@ class SpacesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def space_params
-    params.require(:space).permit(:name, :capacity, :photo)
+    params.require(:space).permit(:name, :capacity, :photo, :description)
   end
   # Use callbacks to share
 end
