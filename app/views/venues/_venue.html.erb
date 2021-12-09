@@ -21,37 +21,22 @@
     <%# BUTTONS %>
     <div class="flex justify-end items-center">
 
-        <%= link_to venue_path(venue), class:'p-1 group text-color-rgb(44 82 130) hover:no-underline' do %>
-          <div class="d-flex p-1 rounded-md border-2 border-gray-400 items-center group-hover:bg-gray-800 group-hover:text-white">
-            <div class="flex px-3 text-gray-700 group-hover:text-white">
-              <i class="fas fa-plus-square fa-lg pt-1"></i>
-              <p class="px-2">Add</p>
-            </div>
-          </div>
-        <% end %>
-
-      <% if current_user.venues.include?(venue) %>
-        <%= link_to edit_venue_path(venue), class:'p-2 group text-color-rgb(44 82 130) hover:no-underline' do %>
-          <div class="d-flex p-1 rounded-md border-2 border-gray-400 items-center group-hover:bg-gray-800 group-hover:text-white">
-            <div class="flex px-3 text-gray-700 group-hover:text-white">
-              <i class="fas fa-user-edit fa-lg pt-1"></i>
-              <p class="px-2">Edit</p>
-            </div>
-          </div>
-        <% end %>
+      <%= link_to venue_path(venue), class:'ml-1 px-3 py-1.5 flex items-center hover:no-underline md:border-2 md:border-gray-800 rounded-md no-underline text-gray-800 hover:text-white hover:bg-gray-800' do %>
+        <i class="fas fa-plus-square fa-lg"></i>
+        <p class="hidden md:block ml-2">Add</p>
       <% end %>
 
       <% if current_user.venues.include?(venue) %>
-        <%= link_to  venue_path(venue), method: :delete, data: { confirm: "Are you sure you want to delete Venue?"}, class:'p-2 group text-color-rgb(44 82 130) hover:no-underline' do %>
-          <div class="d-flex p-1 rounded-md border-2 border-gray-400 items-center group-hover:bg-gray-800 group-hover:text-white">
-            <div class="flex px-3 text-gray-700 group-hover:text-white">
-              <i class="fas fa-trash-alt fa-lg pt-1" style=""></i>
-              <p class="px-2">Delete</p>
-            </div>
-          </div>
+        <%= link_to edit_venue_path(venue), class:'ml-1 px-3 py-1.5 flex items-center hover:no-underline md:border-2 md:border-gray-800 rounded-md no-underline text-gray-800 hover:text-white hover:bg-gray-800' do %>
+          <i class="fas fa-user-edit fa-lg"></i>
+          <p class="hidden md:block ml-2">Edit</p>
+        <% end %>
+
+        <%= link_to venue_path(venue), method: :delete, data: { confirm: "Are you sure you want to delete Venue?"}, class:'ml-1 px-3 py-1.5 flex items-center hover:no-underline md:border-2 md:border-gray-800 rounded-md no-underline text-gray-800 hover:text-white hover:bg-gray-800' do %>
+          <i class="fas fa-trash-alt fa-lg pt-1" style=""></i>
+          <p class="hidden md:block ml-2">Delete</p>
         <% end %>
       <% end %>
-
 <%# class:'text-white py-1 px-6 focus:outline-none hover:bg-blue-600 rounded-md text-lg bg-gradient-to-t from-blue-900 via-blue-600 to-blue-500' %>
     </div>
   </div>
