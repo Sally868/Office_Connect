@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
   end
 
   def show
