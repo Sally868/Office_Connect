@@ -2,7 +2,7 @@
   <div class="container mx-auto">
     <div class="sm:px-8 sm:py-6 md:py-10">
       <div class="relative z-10 pb-3 sm:bg-none">
-        <h2 class="text-xl font-semibold font-sans text-gray-900 sm:text-2xl sm:leading-7 sm:text-black md:text-3xl">99 Designs</h2>
+        <h2 class="text-xl font-semibold font-sans text-gray-900 sm:text-2xl sm:leading-7 sm:text-black md:text-3xl"><% @venue.name %></h2>
         <div class="col-start-1 row-start-2 font-sans">
           <div class="flex items-left justify-between text-sm font-medium sm:mt-2 sm:mb-2">
             <div class="flex">
@@ -14,7 +14,7 @@
                 <span class="sm:hidden md:inline">(28)</span>
               </div>
               <div class="text-base font-normal mx-2">·</div>
-              <p class="text-sm font-medium text-gray-700 sm:mb-1">Richmond, Victoria, Australia</p>
+              <p class="text-sm font-medium text-gray-700 sm:mb-1"><% @venue.address %></p>
             </div>
             <div class="flex justify-end">
               <a class="py-1 px-2 no-underline border text-blue-900 rounded-md" href="/venues/3/spaces/new">+ New Space</a>
@@ -42,6 +42,7 @@
         <% end %>
         </div>
       </div>
+
 
   </div>
 </section>
