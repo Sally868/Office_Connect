@@ -17,7 +17,7 @@
               <p class="text-sm font-medium text-gray-700 sm:mb-1"><%= @venue.address %></p>
             </div>
             <div class="flex justify-end">
-              <a class="py-1 px-2 no-underline border text-blue-900 rounded-md" href="/venues/3/spaces/new">+ New Space</a>
+              <%= link_to '+ New space', new_venue_space_path(@venue), class:'py-1 px-2 no-underline border text-blue-900 rounded-md' %>
             </div>
           </div>
 
