@@ -33,7 +33,7 @@
               <% 5.times do |index_day| %>
                 <% start_slot = (@monday + index_day.days).change({ hour: start_time + index_hr}) %>
                 <% end_slot = start_slot + 1.hour %>
-                <% booking_count = @bookings.where('start <= ? and finish >= ?',  start_slot, end_slot).count %>
+                <% booking_count = @bookings.where('space_id = ? and start <= ? and finish >= ?', @space.id, start_slot, end_slot).count %>
                 <% available = @space.capacity - booking_count %>
                 <% start = (@monday + index_day.days).change({ hour: start_time + index_hr})%>
                 <td>
